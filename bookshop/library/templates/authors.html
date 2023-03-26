@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} Авторы {% endblock %}
+
+{% block content %}
+
+<section id="team" class="team_section padding">
+    <div class="container">
+        <div class="section_heading align-center mb-40">
+            <h2>Список авторов</h2>
+            <p>Ниже представлены авторы, которые есть в базе каталога:</p>
+            <ul class="team_members">
+                <li class="col-md-3 col-xs-6">
+                    <div class="team_member">
+                        <div class="display-table">
+                            <div class="table-cell">
+                                <h4>Фамилия</h4>
+                                {% for el in authors %}
+                                    {{ el.first_name }}<br>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-3 col-xs-6">
+                    <div class="team_member">
+                        <div class="display-table">
+                            <div class="table-cell">
+                                <h4>Имя</h4>
+                                {% for el in authors %}
+                                    {{ el.last_name }}<br>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

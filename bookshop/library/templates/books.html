@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %} Книги {% endblock %}
+
+{% block content %}
+
+<section id="team" class="team_section padding">
+    <div class="container">
+        <div class="section_heading align-center mb-40">
+            <h2>Каталог книг</h2>
+            <p>Ниже представлены книги, которые находятся в базе каталога:</p>
+            <ul class="team_members">
+                <li class="col-md-3 col-xs-6">
+                    <div class="team_member">
+                        <div class="display-table">
+                            <div class="table-cell">
+                                <h4>Название книги</h4>
+                                {% for el in books %}
+                                    {{ el.title }}<br>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-3 col-xs-6">
+                    <div class="team_member">
+                        <div class="display-table">
+                            <div class="table-cell">
+                                <h4>Автор / авторы</h4>
+                                {% for el in books %}
+                                    {{ el.authors }}<br>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-3 col-xs-6">
+                    <div class="team_member">
+                            <div class="display-table">
+                                <div class="table-cell">
+                                    <h4>Дата добавления</h4>
+                                    {% for el in books %}
+                                        {{ el.publication_date }}<br>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

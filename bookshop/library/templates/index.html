@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title%} Главная страница {% endblock%}
+
+{% block content%} 
+<section id="home" class="hero_section">
+    <div class="display-table">
+        <div class="table-cell">
+            <div class="container">
+                <div class="hero_content align-center">
+                    <h1 class="text-white">литература онлайн</h1>
+                    <h3 class="text-white">каталог самых интересных книг от самых популярных авторов: <br>приключения, фантастика, научная и популярная литература...</h3>
+                    <a href="{% url 'authors' %}" class="fs_btn">Авторы</a>
+                    <a href="{% url 'books' %}" class="fs_btn">Книги</a>
+                    <a href="{% url 'add' %}" class="fs_btn">+</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /.hero_section -->
+
+{% endblock%}

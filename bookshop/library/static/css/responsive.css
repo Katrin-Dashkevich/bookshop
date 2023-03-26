@@ -1,0 +1,148 @@
+/*
+    Theme Responsive Design
+*/
+
+@media (max-width: 1024px) {
+	
+}
+
+/* ---- Start of max-width 992px CSS ---- */
+@media (max-width: 992px) {
+    .sm-padding{ padding: 15px; }
+    .hero_section{
+        height: 540px;
+    }
+    .hero_content {
+        padding: 78px 0;
+    }
+    .hero_content h1{
+        font-size: 30px;
+    }
+    .form_container h2{
+        font-size: 18px;
+    }
+    .form_container p{
+        font-size: 12px;
+    }
+    .pricing_content .fs_btn {
+        position: inherit;
+        bottom: -15px;
+        right: 0;
+    }
+    .tab_menu li{
+        padding: 5px;
+    }
+
+}
+/* ---- End of max-width 992px CSS ---- */
+
+
+/* ---- Start of min-width 480px and max-width 768px CSS ---- */
+@media all and (min-width: 480px) and (max-width: 768px) {
+	
+}
+/* ---- End of min-width 480px and max-width 768px CSS ---- */
+
+
+/* ---- Start of max-width 767px CSS ---- */
+@media all and (max-width: 767px) {
+    body, p{
+        font-size: 12px;
+        line-height: 22px;
+    }
+    h1{
+        font-size: 30px;
+    }
+    h2{
+        font-size: 20px;
+    }
+    h3{
+        font-size: 16px;
+    }
+    p br{
+        display: none;
+    }
+    .padding{
+        padding: 60px 0;
+    }
+    .xs-padding{
+    	padding: 15px;
+    }
+    .hero_content {
+        padding: 30px 0;
+        text-align: center;
+    }
+    .hero_content h1 br{
+        display: none;
+    }
+    .subscribe_form .form_input{
+        width: 60%;
+    }
+    .subscribe_form .submit{
+        width: 40%;
+        padding: 0 10px;
+    }
+	.contact_form .form-group .col-sm-6:first-child{
+        margin-bottom: 15px;
+    }
+}
+/* ---- End of max-width 767px CSS ---- */
+
+
+/* ---- Start of max-width 480px CSS ---- */
+@media all and (max-width: 480px) {
+    .col-xs-6{
+		float: none;
+		width: 100%;
+	}
+    .brands .col-xs-6{
+        float: left;
+        width: 50%;
+    }
+    .schedule_content img{
+        width: 100%;
+        height: auto;
+        margin: 0 0 15px;
+    }
+    .hero_section{
+        height: 420px;
+    }
+
+    .subscribe_form .submit {
+        margin-top: 10px;
+        width: 100%;
+    }
+    .subscribe_form .form_input {
+        width: 100%;
+    }
+}
+/* ---- End of max-width 480px CSS ---- */
+
+
+/* ---- Start of max-width 520px CSS ---- */
+@media all and (max-width: 520px) {
+    .col-xs-6{
+        float: none;
+        width: 100%;
+    }
+    .tab_menu li{
+        padding: 3px;
+    }
+    .tab_menu li a {
+        background-color: #fff;
+        border-radius: 5px;
+        display: inline-block;
+        line-height: 40px;
+        padding: 0 15px;
+        color: #333;
+        font-size: 12px;
+    }
+}
+/* ---- End of max-width 520px CSS ---- */
+
+
+/* ---- Start of max-width 380px CSS ---- */
+@media all and (max-width: 380px) {
+     
+}
+/* ---- End of max-width 380px CSS ---- */
