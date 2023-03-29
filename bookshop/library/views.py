@@ -8,22 +8,23 @@ def index(request):
 
 
 def add(request):
-    error=''
-    if request.method =='POST':
-        form = AddForm(request.POST)
-        if form.is_valid():
-            form.save()
-            redirect('index')
-        else:
-            error = 'Форма была неверной'
-
-    
-    form = AddForm()
-    context = {
-        'form': form,
-        'error': error,
-    }
-    return render(request,'add.html', context)
+#    error=''
+#    if request.method =='POST':
+#        form = AddForm(request.POST)
+#        if form.is_valid():
+#            form.save()
+#            redirect('index')
+#        else:
+#            error = 'Форма была неверной'
+#
+#    
+#    form = AddForm()
+#    context = {
+#        'form': form,
+#        'error': error,
+#    }
+#    return render(request,'add.html', context)
+    return render(request,'add.html')
 
 
 def authors(request):
