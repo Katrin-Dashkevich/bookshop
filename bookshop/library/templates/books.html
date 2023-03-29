@@ -15,8 +15,8 @@
                         <div class="display-table">
                             <div class="table-cell">
                                 <h4>Название книги</h4>
-                                {% for el in books %}
-                                    {{ el.title }}<br>
+                                {% for book in books %}
+                                    {{ book.title }}<br>
                                 {% endfor %}
                             </div>
                         </div>
@@ -26,9 +26,9 @@
                     <div class="team_member">
                         <div class="display-table">
                             <div class="table-cell">
-                                <h4>Автор / авторы</h4>
-                                {% for el in books %}
-                                    {{ el.authors }}<br>
+                                <h4>Издательство</h4>
+                                {% for book in books %}
+                                    {{ book.publisher }}<br>
                                 {% endfor %}
                             </div>
                         </div>
@@ -39,8 +39,8 @@
                             <div class="display-table">
                                 <div class="table-cell">
                                     <h4>Дата добавления</h4>
-                                    {% for el in books %}
-                                        {{ el.publication_date }}<br>
+                                    {% for book in books %}
+                                        {{ book.publication_date }}<br>
                                     {% endfor %}
                                 </div>
                             </div>
