@@ -22,6 +22,18 @@
                         </div>
                     </div>
                 </li>
+                  <li class="col-md-3 col-xs-6">
+                    <div class="team_member">
+                        <div class="display-table">
+                            <div class="table-cell">
+                                <h4>Издательство</h4>
+                                {% for book in book.authors.all %}
+                                    {{ book }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </li>              
                 <li class="col-md-3 col-xs-6">
                     <div class="team_member">
                         <div class="display-table">
