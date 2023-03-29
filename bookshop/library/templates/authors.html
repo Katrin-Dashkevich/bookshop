@@ -15,8 +15,8 @@
                         <div class="display-table">
                             <div class="table-cell">
                                 <h4>Фамилия</h4>
-                                {% for el in authors %}
-                                    {{ el.first_name }}<br>
+                                {% for author in authors %}
+                                    {{ author.first_name }}<br>
                                 {% endfor %}
                             </div>
                         </div>
@@ -29,6 +29,18 @@
                                 <h4>Имя</h4>
                                 {% for el in authors %}
                                     {{ el.last_name }}<br>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-3 col-xs-6">
+                    <div class="team_member">
+                        <div class="display-table">
+                            <div class="table-cell">
+                                <h4>E-mail</h4>
+                                {% for author in authors %}
+                                    {{ author.email }}<br>
                                 {% endfor %}
                             </div>
                         </div>
