@@ -27,8 +27,8 @@
                         <div class="display-table">
                             <div class="table-cell">
                                 <h4>Имя</h4>
-                                {% for el in authors %}
-                                    {{ el.last_name }}<br>
+                                {% for author in authors %}
+                                    {{ author.last_name }}<br>
                                 {% endfor %}
                             </div>
                         </div>
