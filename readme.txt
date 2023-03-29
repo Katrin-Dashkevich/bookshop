@@ -1,7 +1,7 @@
 ====================
 ИНСТРУКЦИЯ К ПРОЕКТУ
 
-!!В проекте реализован не полный функционал. На данный момент он в доработке до 31.03.2023.
+!!В проекте реализован не полный функционал. На данный момент он в доработке.
 
 ---------------
 Проект BookShop:
@@ -173,10 +173,42 @@ class Publisher(models.Model):
 5. Тесты размещены в директори:
 	bookshop\bookshop\library\tests.py
 
-1. Тест 1: проверка
+1. Тест 1: проверка , доступна ли страница /books.html
 
 Описание теста:
 
+class LibraryTest(TestCase):
+
+    def test_index(self):
+       response = self.client.get('/books')
+       self.assertEqual(response.status_code, 200)
+
+Для проверки теста заменить self.assertEqual(response.status_code, 200) на self.assertEqual(response.status_code, 300).
+
+2. Тест 2: проверки полей класса Author. 
+
+Описание теста:
+
+class AuthorModelTest(TestCase):
+
+    @classmethod
+    def setUpTestData(cls):
+        Author.objects.create(first_name='Adam', last_name='Cross')
+
+    def test_first_name_label(self):
+        author=Author.objects.get(id=1)
+        field_label = author._meta.get_field('first_name').verbose_name
+        self.assertEquals(field_label,'first_name')
+
+    def test_first_name_max_length(self):
+        author=Author.objects.get(id=1)
+        max_length = author._meta.get_field('first_name').max_length
+        self.assertEquals(max_length,100)
 
 
+Проверка поля first_name (имя) на удобочитаемое имя для поля, используемого в поле метки.
+Для проверки теста заменить self.assertEquals(field_label,'first_name') на self.assertEquals(field_label,'имя'), т.к. в классе Author - first_name = models.CharField(max_length=30, verbose_name='имя')
 
+
+Проверка поля first_name (имя) на возможное количество вводимых символов в поле max_length.
+Для проверки теста заменить self.assertEquals(max_length,100) на self.assertEquals(max_length,30), т.к. в классе Author - first_name = models.CharField(max_length=30, verbose_name='имя')
