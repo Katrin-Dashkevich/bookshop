@@ -49,46 +49,72 @@
 
 2.1 Сервис предоставляет интерфейс для работы с сущностью "Автор". У автора есть:
 - имя (максимум 30 символов),
-- фамилия (максимум 40  символов).
+- фамилия (максимум 40  символов),
+- email (необязательное поле).
 
 Описание класса:
 
-	class Author(models.Model):
-    		first_name = models.CharField(max_length=30)
-    		last_name = models.CharField(max_length=40)
+class Author(models.Model):
+    first_name = models.CharField(max_length=30, verbose_name='имя')
+    last_name = models.CharField(max_length=40, verbose_name='фамилия')
+    email = models.EmailField(blank=True, verbose_name='e-mail')
 
-    		def str(self):
-        		return '%s %s' % (self.first_name, self.last_name)
+    def __str__(self):
+        return '%s %s' % (self.first_name, self.last_name)
 
-    		class Meta:
-        		verbose_name='Автор'
-        		verbose_name_plural='Авторы'
+    class Meta:
+        verbose_name='автор'
+        verbose_name_plural='авторы'
 
 Примечание 1: класс можно расширить дополнительно - год рождения автора, страна проживания и т.п.
 
 2.2 Сервис предоставляет интерфейс для работы с сущностью "Книга". У книги есть:
 - название (максимум 1000 символов),
 - один или несколько авторов (отношение многие-ко-многим между авторами и книгами),
+- издательство (через ForeignKey, связывающий с издательством),
+- дата публикации (необязательное поле).
+
+Описание класса:
+
+class Book(models.Model):
+    title = models.CharField(max_length=100, verbose_name='название')
+    authors = models.ManyToManyField(Author, verbose_name='автор')
+    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE, verbose_name='издательство')
+    publication_date = models.DateField(blank=True, null=True, verbose_name='дата публикации')
+
+    def __str__(self):
+        return '%s' % (self.title)
+
+    class Meta:
+        verbose_name='книга'
+        verbose_name_plural='книги'
+
+Примечание 2: поле "authors" имеет тип "ManyToManyField" - у книги может быть один или несколько авторов.
+Примечание 3: класс можно расширить дополнительно - количество страниц, цена, качество обложки, краткая аннотация, отзывы читателей, оценка читателя и т.п.
+
+3. Сервис предоставляет интерфейс для работы с сущностью "Издательство". У издательства есть:
+- название (максимум 1000 символов),
+- один или несколько авторов (отношение многие-ко-многим между авторами и книгами),
 - год выпуска.
 
 Описание класса:
 
-	class Book(models.Model):
-    		title = models.CharField(max_length=1000)
-    		authors = models.ManyToManyField(Author, through="Library")
-    		publication_date = models.DateField()
+class Publisher(models.Model):
+    name = models.CharField(max_length=50, verbose_name='название')
+    address = models.CharField(max_length=60, verbose_name='адрес')
+    city = models.CharField(max_length=30, verbose_name='город')
+    state_province = models.CharField(max_length=30, verbose_name='штат, область')
+    country = models.CharField(max_length=30, verbose_name='страна')
+    website = models.URLField(blank=True, verbose_name='web-сайт')
 
-    		def str(self):
-        		return '%s %s %s' % (self.title, self.authors, self.publication_date)    
+    def __str__(self):
+        return '%s' % (self.name)
 
-    		class Meta:
-        		verbose_name='Книга'
-        		verbose_name_plural='Книги'
+    class Meta:
+        verbose_name='издательство'
+        verbose_name_plural='издательства'
 
-Примечание 2: поле "authors" имеет тип "ManyToManyField" - у книги может быть один или несколько авторов.
-Примечание 3: класс можно расширить дополнительно - издательство, количество страниц, цена, качество обложки, краткая аннотация, отзывы читателей, оценка читателя и т.п.)
-
-
+Примечание 4: класс можно расширить дополнительно - год основания, выпускаемые жанры книг и т.п.
 -----------------
 3. Настройки проекта:
 
@@ -141,4 +167,16 @@
 - authors.html	авторы
 - base.html	главная страница проекта
 - books.html	книги, хранящиеся в базе проекта
+
+
+-------
+5. Тесты размещены в директори:
+	bookshop\bookshop\library\tests.py
+
+1. Тест 1: проверка
+
+Описание теста:
+
+
+
 
