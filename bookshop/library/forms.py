@@ -1,10 +1,10 @@
-# from .models import Book, Author, Library
+# from .models import Book, Author, Publisher
 # from django.forms import ModelForm, TextInput, DateField
 
 
 # class AddForm(ModelForm):
 #     class Meta:
-#         model = Book, Author, Library
+#         model = Book, Author, Publisher
 #         fields =["title", "authors", "publication_date"]
 #         widgets = {
 #             "title": TextInput(attrs={
