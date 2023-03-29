@@ -1,23 +1,19 @@
 from django.contrib import admin
-from library.models import Author, Book, Library
+from library.models import Publisher, Author, Book
 
 
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name')
+    list_display = ('first_name', 'last_name', 'email')
     search_fields = ('first_name', 'last_name')
 
-
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'publication_date')
+    list_display = ('title', 'publisher', 'publication_date')
+    list_filter = ('publication_date', )
     search_fields = ('title',)
     date_hierarchy = 'publication_date'
-    fields = ('title', 'publication_date')
+    filter_horizontal = ('authors', )
+    raw_id_fields = ('publisher', )
 
-class LibraryAdmin(admin.ModelAdmin):
-    authors = ('first_name', 'last_name')
-    books = ('title', 'publication_date')
-
-
+admin.site.register(Publisher)
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Book, BookAdmin)
-admin.site.register(Library, LibraryAdmin)
