@@ -25,7 +25,7 @@ class Author(models.Model):
     email = models.EmailField(blank=True, verbose_name='e-mail')
 
     def __str__(self):
-        return '%s %s' % (self.first_name, self.last_name)
+        return '{0}, {1}'.format(self.last_name, self.first_name)
 
     class Meta:
         verbose_name='автор'
