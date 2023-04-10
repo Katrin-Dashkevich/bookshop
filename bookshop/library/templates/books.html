@@ -9,57 +9,24 @@
         <div class="section_heading align-center mb-40">
             <h2>Каталог книг</h2>
             <p>Ниже представлены книги, которые находятся в базе каталога:</p>
-            <ul class="team_members">
-                <li class="col-md-3 col-xs-6">
-                    <div class="team_member">
-                        <div class="display-table">
-                            <div class="table-cell">
-                                <h4>Название книги</h4>
-                                {% for book in books %}
-                                    {{ book.title }}<br>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                  <li class="col-md-3 col-xs-6">
-                    <div class="team_member">
-                        <div class="display-table">
-                            <div class="table-cell">
-                                <h4>Издательство</h4>
-                                {% for book in book.authors.all %}
-                                    {{ book }}
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </li>              
-                <li class="col-md-3 col-xs-6">
-                    <div class="team_member">
-                        <div class="display-table">
-                            <div class="table-cell">
-                                <h4>Издательство</h4>
-                                {% for book in books %}
-                                    {{ book.publisher }}<br>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="col-md-3 col-xs-6">
-                    <div class="team_member">
-                            <div class="display-table">
-                                <div class="table-cell">
-                                    <h4>Дата добавления</h4>
-                                    {% for book in books %}
-                                        {{ book.publication_date }}<br>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+			<center>
+			<table>
+				<tr>
+					<td>Название книги</td><td>&nbsp;</td>
+					<td>Автор / Авторы</td><td>&nbsp;</td>
+					<td>Издательство</td><td>&nbsp;</td>
+					<td>Дата добавления</td>
+				</tr>
+			{% for book in books.all %}
+				<tr align="left">
+					<td>{{ book.title }}</td><td>&nbsp;</td>
+					<td>{{ book.authors.all|join:"; " }}</td><td>&nbsp;</td>
+					<td>{{ book.publisher }}</td><td>&nbsp;</td>
+					<td>{{ book.publication_date }}</td>
+				</tr>
+			{% endfor %}
+			</table>
+			</center>
         </div>
     </div>
 </section>
