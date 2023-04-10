@@ -15,6 +15,7 @@ class Publisher(models.Model):
     class Meta:
         verbose_name='издательство'
         verbose_name_plural='издательства'
+        ordering = ['-name']
 
 
 
@@ -43,3 +44,13 @@ class Book(models.Model):
     class Meta:
         verbose_name='книга'
         verbose_name_plural='книги'
+        
+        
+class Admin:
+   list_display = ('title', 'publisher', 'publication_date')
+   list_filter = ('publisher', 'publication_date')
+   ordering = ('-publication_date')
+   search_fields = ('title')
+
+   def __str__(self):
+      return self.title
