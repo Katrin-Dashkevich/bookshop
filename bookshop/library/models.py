@@ -46,11 +46,11 @@ class Book(models.Model):
         verbose_name_plural='книги'
         
         
-class Admin:
-   list_display = ('title', 'publisher', 'publication_date')
-   list_filter = ('publisher', 'publication_date')
-   ordering = ('-publication_date')
-   search_fields = ('title')
+    class Admin:
+        list_display = ('title', 'publisher', 'publication_date')
+        list_filter = ('publisher', 'publication_date')
+        ordering = ('-publication_date')
+        search_fields = ('title')
 
    def __str__(self):
       return self.title
