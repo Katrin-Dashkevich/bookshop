@@ -33,4 +33,4 @@ def authors(request):
 
 def books(request):
     books = Book.objects.all()
-    return render(request,'books.html', {"books" : books})
+    return render(request,'books.html', {"books": books, "authors": authors})
