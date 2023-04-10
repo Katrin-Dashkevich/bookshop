@@ -9,44 +9,22 @@
         <div class="section_heading align-center mb-40">
             <h2>Список авторов</h2>
             <p>Ниже представлены авторы, которые есть в базе каталога:</p>
-            <ul class="team_members">
-                <li class="col-md-3 col-xs-6">
-                    <div class="team_member">
-                        <div class="display-table">
-                            <div class="table-cell">
-                                <h4>Фамилия</h4>
-                                {% for author in authors %}
-                                    {{ author.first_name }}<br>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="col-md-3 col-xs-6">
-                    <div class="team_member">
-                        <div class="display-table">
-                            <div class="table-cell">
-                                <h4>Имя</h4>
-                                {% for author in authors %}
-                                    {{ author.last_name }}<br>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="col-md-3 col-xs-6">
-                    <div class="team_member">
-                        <div class="display-table">
-                            <div class="table-cell">
-                                <h4>E-mail</h4>
-                                {% for author in authors %}
-                                    {{ author.email }}<br>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+			<center>
+			<table>
+				<tr>
+					<td>Фамилия</td><td>&nbsp;</td>
+					<td>Имя</td><td>&nbsp;</td>
+					<td>E-mail</td><td>&nbsp;</td>
+				</tr>
+			{% for author in authors %}
+				<tr align="left">
+					<td>{{ author.last_name }}</td><td>&nbsp;</td>
+					<td>{{ author.first_name }}</td><td>&nbsp;</td>
+					<td>{{ author.email }}</td>
+				</tr>
+			{% endfor %}
+			</table>
+			</center>
         </div>
     </div>
 </section>
